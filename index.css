@@ -1,0 +1,62 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #4a4a4a;
+}
+
+.options {
+  height: 50vh;
+  padding: 15px;
+}
+
+.options .btn {
+  height: 50px;
+}
+
+.drop {
+  height: 50vh;
+  font-size: 2.5rem;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+}
+
+.status {
+  border-left: 1px solid black;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.drop-text {
+  height: fit-content;
+  position: relative;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+#log {
+  padding: 15px 0;
+}
+
+.log-entry {
+  font-family: monospace;
+  border: 1px solid;
+  padding: 5px;
+  margin-bottom: 15px;
+  white-space: break-spaces;
+  color: white;
+}
+
+.log-entry:last-of-type {
+  margin-bottom: 0;
+}
+
+.input-group-prepend {
+  display: block;
+}

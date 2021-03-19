@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src *; script-src *;">
+  <meta http-equiv="X-Content-Security-Policy" content="default-src *; script-src *">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+
+  <title>NVEncC_5.29 GUI</title>
+
+</head>
+<body>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div id="dropzone" class="row drop">
+          <span class="drop-text">Drop videofiles here</span>
+        </div>
+        <div class="row options">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm1">Params</span>
+            </div>
+            <input id="params" type="text" class="form-control" value="-c hevc --audio-copy" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+          </div>
+
+          <div class="input-group">
+            <input placeholder="prefix" type="text" class="form-control">
+            <input placeholder="suffix" type="text" class="form-control">
+          </div>
+
+          <button type="button" id="saveTo" class="btn btn-primary btn-lg">Save to</button>
+        </div>
+      </div>
+      <div class="col status">
+        <div id="log"></div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
+</body>
+</html>
