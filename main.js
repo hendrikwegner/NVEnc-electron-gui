@@ -38,7 +38,6 @@ app.whenReady().then(() => {
 
   ipcMain.on('saveTo_ToMain', (event, msg) => {
     console.log(msg) // msg from web page
-
     const savePath = dialog.showOpenDialog({
       title: "Select a folder",
       properties: ["openDirectory"]
@@ -46,12 +45,19 @@ app.whenReady().then(() => {
       window.webContents.send('saveTo_ToPreload', result) // send to web page
     }).catch(err => {
       window.webContents.send('saveTo_ToPreload', err) // send to web page
-
     })
-
-
   })
 
+  ipcMain.on('nvenc_ToMain', (event, msg) => {
+    console.log(msg) // msg from web page
+    const nvencPath = dialog.showOpenDialog({
+      title: "Select nvenc executable"
+    }).then(result => {
+      window.webContents.send('nvenc_ToPreload', result) // send to web page
+    }).catch(err => {
+      window.webContents.send('nvenc_ToPreload', err) // send to web page
+    })
+  })
 
 
 
