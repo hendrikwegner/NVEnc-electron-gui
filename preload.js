@@ -73,7 +73,8 @@ encode = function (pathToFile, params, prefix = "", suffix = "") {
 
 
   // TODO: path for runner cwd and exectuable filename
-  let execPath = window.nvencPath.split('\\')
+  let execPath = window.nvencPath.replace(/(.*\\)(.*)/, "$1")
+  let nvencName = window.nvencPath.replace(/(.*\\)(.*)/, "$2")
 
 
   params.push('-i')
@@ -81,7 +82,9 @@ encode = function (pathToFile, params, prefix = "", suffix = "") {
   params.push('-o')
   params.push(window.saveTo+prefix + filename + suffix + ".mp4")
 
-  const runner = execFile(`NVEncC64.exe`, params, {cwd: './NVEncC_5.29_x64/'});
+  const runner = execFile(nvencName, params, {cwd: execPath});
+
+  runner.kill()
   //const runner = execFile(`NVEncC64.exe`, params, {cwd: window.nvencPath});
   console.log(runner)
 
